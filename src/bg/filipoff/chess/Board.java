@@ -15,7 +15,7 @@ public class Board {
 		for (int i = 0; i < Constants.BOARD_LENGTH; i++) {
 			for (int j = 0; j < Constants.BOARD_WIDTH; j++) {
 
-				board[i][j] = new Field(c, i, j);
+				board[i][j] = new Field(this, c, i, j);
 
 				c = c.toggle();
 			}
@@ -28,7 +28,7 @@ public class Board {
 
 		for (int i = 0; i < Constants.BOARD_LENGTH; i++) {
 			for (int j = 0; j < Constants.BOARD_WIDTH; j++) {
-				System.out.print("[" +board[i][j].getPosition() + "]");
+				System.out.print("[" + board[i][j].getPosition() + "]");
 			}
 			System.out.print("\n");
 		}

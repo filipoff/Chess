@@ -54,12 +54,13 @@ public class Field {
 
 	private Constants.Color color;
 	private Position position;
+	private Board board;
 	
-	
-	public Field(Color color, int row, int column) throws IllegalArgumentException {
+	public Field(Board board, Color color, int row, int column) throws IllegalArgumentException {
 		
 		this.color = color;
 		this.position = new Position(row, column);
+		this.board = board;
 		
 	}
 
@@ -68,6 +69,9 @@ public class Field {
 		return color;
 	}
 
+	public Board getBoard() {
+		return board;
+	}
 
 	public Position getPosition() {
 		return position;
