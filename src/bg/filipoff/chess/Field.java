@@ -1,37 +1,36 @@
 package bg.filipoff.chess;
 
-import bg.filipoff.chess.Constants;
-import bg.filipoff.chess.Constants.Color;
+import bg.filipoff.chess.Constants.*;
 
 public class Field {
 
-	private class Position {
+	class Position {
 
-		private byte row;
+		private int row;
 
-		private byte column;
+		private int column;
 
-		public Position(byte row, byte column) {
+		public Position(int row, int column) {
 			setRow(row);
 			setColumn(column);
 		}
 
-		public byte getRow() {
+		public int getRow() {
 			return row;
 		}
 
-		public void setRow(byte row) {
+		public void setRow(int row) {
 			if (row < 0 || row >= Constants.BOARD_LENGTH)
 				throw new IllegalArgumentException("Invalid row position");
 
 			this.row = row;
 		}
 
-		public byte getColumn() {
+		public int getColumn() {
 			return column;
 		}
 
-		public void setColumn(byte column) {
+		public void setColumn(int column) {
 			if (column < 0 || column >= Constants.BOARD_WIDTH)
 				throw new IllegalArgumentException("Invalid column position");
 			this.column = column;
@@ -57,7 +56,7 @@ public class Field {
 	private Position position;
 	
 	
-	public Field(Color color, byte row, byte column) throws IllegalArgumentException {
+	public Field(Color color, int row, int column) throws IllegalArgumentException {
 		
 		this.color = color;
 		this.position = new Position(row, column);
