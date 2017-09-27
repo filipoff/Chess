@@ -49,6 +49,9 @@ public class Field {
 			return "" + (char) (column + offset + base) + (char) (row + 1 + base);
 		}
 		
+		// TODO:
+		// implement equals method of Position
+		
 		
 	}
 

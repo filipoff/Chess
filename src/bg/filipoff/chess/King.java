@@ -28,15 +28,15 @@ public class King extends Figure {
 					continue;
 
 				try {
-					Field possible = this
+					Field possibleField = this
 							.getField()
 							.getBoard()
 							.getFieldAt(
 									this.getField().getPosition().getRow() + i,
 									this.getField().getPosition().getColumn()
 											+ j);
-					if (possible != null)
-						possibleFieldsToMove.add(possible);
+					if (possibleField != null)
+						possibleFieldsToMove.add(possibleField);
 
 				} catch (IllegalArgumentException e) {
 					System.out.println("Exception caught in King");

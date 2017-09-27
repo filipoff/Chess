@@ -33,4 +33,14 @@ public class Board {
 			System.out.print("\n");
 		}
 	}
+
+	public Field getFieldAt(int row, int column) {
+		if (row < 0 || row >= Constants.BOARD_LENGTH || column < 0
+				|| column >= Constants.BOARD_WIDTH)
+			// TODO:
+			// null or exception ??
+			return null;
+		
+		return board[row][column];
+	}
 }

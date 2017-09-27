@@ -1,13 +1,35 @@
 package bg.filipoff.chess;
 
+import java.util.HashMap;
+import java.util.Map;
+
 public class Constants {
+
 	public static int BOARD_LENGTH = 8;
 
 	public static int BOARD_WIDTH = 8;
 
+	@SuppressWarnings("serial")
+	public static Map<Figure, String> FigureStringRepresentation = new HashMap<Figure, String>() {
+		{
+			put(new King(null, null), "K");
+		};
+	};
+
 	public enum Color {
-		
-		WHITE, BLACK;
+
+		WHITE {
+			@Override
+			String shortString() {
+				return "W";
+			}
+		},
+		BLACK {
+			@Override
+			String shortString() {
+				return "B";
+			}
+		};
 
 		Color toggle() {
 			if (this.equals(WHITE))
@@ -15,5 +37,7 @@ public class Constants {
 			else
 				return WHITE;
 		}
+
+		abstract String shortString();
 	}
 }
