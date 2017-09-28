@@ -1,14 +1,12 @@
 package bg.filipoff.chess;
 
-import bg.filipoff.chess.Constants.Color;
-
 public class Board {
 
 	private Field[][] board;
 
 	public Board() {
 
-		Color c = Color.BLACK;
+		Constants.Color c = Constants.Color.WHITE;
 
 		board = new Field[Constants.BOARD_LENGTH][Constants.BOARD_WIDTH];
 
@@ -24,6 +22,7 @@ public class Board {
 		}
 	}
 
+	// prints the positions of the field on the board
 	public void print() {
 
 		for (int i = 0; i < Constants.BOARD_LENGTH; i++) {
@@ -34,13 +33,57 @@ public class Board {
 		}
 	}
 
+	// returns the field by row and column
+	// or null if arguments are not valid
+
 	public Field getFieldAt(int row, int column) {
 		if (row < 0 || row >= Constants.BOARD_LENGTH || column < 0
 				|| column >= Constants.BOARD_WIDTH)
 			// TODO:
 			// null or exception ??
 			return null;
-		
+
 		return board[row][column];
+	}
+
+	// returns the field by board notation i.e "A1", "H8"
+	// or null if arguments are not valid
+	public Field getFieldAt(String boardNotation) {
+
+		if (boardNotation.length() != 2)
+			return null;
+
+		// TODO : better way?
+		// how can row and column be visible outside the 'try' block ?
+		try {
+
+			boardNotation = boardNotation.toUpperCase();
+
+			char parseColumn = boardNotation.charAt(0);
+
+			// Not scalable enough
+			// its hardcoded
+
+			if (parseColumn < 'A' || parseColumn > 'H')
+				throw new NumberFormatException();
+
+			char base = 'A';
+
+			int column = parseColumn - base;
+
+			int row = Constants.BOARD_LENGTH
+					- Integer.parseInt("" + boardNotation.charAt(1));
+
+			if (row < 0 || row >= Constants.BOARD_LENGTH || column < 0
+					|| column >= Constants.BOARD_WIDTH)
+				// TODO:
+				// null or exception ??
+				return null;
+
+			return board[row][column];
+
+		} catch (NumberFormatException ex) {
+			return null;
+		}
 	}
 }

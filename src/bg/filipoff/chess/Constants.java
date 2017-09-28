@@ -13,6 +13,7 @@ public class Constants {
 	public static Map<Figure, String> FigureStringRepresentation = new HashMap<Figure, String>() {
 		{
 			put(new King(null, null), "K");
+			put(new Rook(null, null), "R");
 		};
 	};
 

@@ -1,7 +1,5 @@
 package bg.filipoff.chess;
 
-import bg.filipoff.chess.Constants.*;
-
 public class Field {
 
 	class Position {
@@ -36,37 +34,35 @@ public class Field {
 			this.column = column;
 		}
 
-		
 		// Not scalable enough
 		// What happens if we have more than 26 columns
-		
+
 		@Override
 		public String toString() {
-			
-			char offset = 'A' - '0';
-			char base = '0';
-			
-			return "" + (char) (column + offset + base) + (char) (row + 1 + base);
+
+			final char offset = 'A' - '0';
+			final char base = '0';
+
+			return "" + (char) (column + offset + base)
+					+ (char) (Constants.BOARD_LENGTH - 1 - row + 1 + base);
 		}
-		
 		// TODO:
 		// implement equals method of Position
-		
-		
+
 	}
 
 	private Constants.Color color;
 	private Position position;
 	private Board board;
-	
-	public Field(Board board, Color color, int row, int column) throws IllegalArgumentException {
-		
+
+	public Field(Board board, Constants.Color color, int row, int column)
+			throws IllegalArgumentException {
+
 		this.color = color;
 		this.position = new Position(row, column);
 		this.board = board;
-		
-	}
 
+	}
 
 	public Constants.Color getColor() {
 		return color;
@@ -78,5 +74,5 @@ public class Field {
 
 	public Position getPosition() {
 		return position;
-	}	
+	}
 }

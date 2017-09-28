@@ -1,6 +1,6 @@
 package bg.filipoff.chess;
 
-import java.util.LinkedList;
+import java.util.ArrayList;
 import java.util.List;
 
 public class King extends Figure {
@@ -18,23 +18,23 @@ public class King extends Figure {
 	@Override
 	public List<Field> getPossibleFieldsToMove() {
 
-		List<Field> possibleFieldsToMove = new LinkedList<Field>();
+		List<Field> possibleFieldsToMove = new ArrayList<Field>();
+
+		int currentPositionRow = getField().getPosition().getRow();
+		int currentPositionColumn = getField().getPosition().getColumn();
 
 		for (int i = -1; i <= 1; i++) {
 
 			for (int j = -1; j <= 1; j++) {
 
+				// skip the current position of the king
 				if (i == 0 && j == 0)
 					continue;
 
 				try {
-					Field possibleField = this
-							.getField()
-							.getBoard()
-							.getFieldAt(
-									this.getField().getPosition().getRow() + i,
-									this.getField().getPosition().getColumn()
-											+ j);
+					Field possibleField = getField().getBoard().getFieldAt(
+							currentPositionRow + i, currentPositionColumn + j);
+
 					if (possibleField != null)
 						possibleFieldsToMove.add(possibleField);
 
