@@ -40,11 +40,12 @@ public class Field {
 		@Override
 		public String toString() {
 
-			final char offset = 'A' - '0';
-			final char base = '0';
+			char offset = 'A' - '0';
+			char base = '0';
 
 			return "" + (char) (column + offset + base)
-					+ (char) (Constants.BOARD_LENGTH - 1 - row + 1 + base);
+					+ (char) (row + 1 + base);
+
 		}
 		// TODO:
 		// implement equals method of Position

@@ -25,8 +25,20 @@ public class Board {
 	// prints the positions of the field on the board
 	public void print() {
 
-		for (int i = 0; i < Constants.BOARD_LENGTH; i++) {
+		for (int i = Constants.BOARD_LENGTH - 1; i >= 0; i--) {
 			for (int j = 0; j < Constants.BOARD_WIDTH; j++) {
+				System.out.print("[" + board[i][j].getPosition() + "]");
+			}
+			System.out.print("\n");
+		}
+	}
+
+	// prints the positions of the field on the board
+	// as black player sees it
+
+	public void printFlipped() {
+		for (int i = 0; i < Constants.BOARD_LENGTH; i++) {
+			for (int j = Constants.BOARD_WIDTH - 1; j >= 0; j--) {
 				System.out.print("[" + board[i][j].getPosition() + "]");
 			}
 			System.out.print("\n");
@@ -71,8 +83,7 @@ public class Board {
 
 			int column = parseColumn - base;
 
-			int row = Constants.BOARD_LENGTH
-					- Integer.parseInt("" + boardNotation.charAt(1));
+			int row = Integer.parseInt("" + boardNotation.charAt(1)) - 1;
 
 			if (row < 0 || row >= Constants.BOARD_LENGTH || column < 0
 					|| column >= Constants.BOARD_WIDTH)
