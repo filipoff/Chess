@@ -14,6 +14,7 @@ public class Constants {
 		{
 			put(new King(null, null), "K");
 			put(new Rook(null, null), "R");
+			put(new Bishop(null, null), "B");
 		};
 	};
 

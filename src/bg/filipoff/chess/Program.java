@@ -9,9 +9,10 @@ public class Program {
 		Board b = new Board();
 		Player p1 = new Player(Color.WHITE);
 
-		King k = new King(p1, b.getFieldAt(0, 8));
-		// Rook r = new Rook(p1, b.getFieldAt(4, 3));
-		p1.addFigureInPlay(k);
+		// King k = new King(p1, b.getFieldAt(0, 7));
+//		Rook r = new Rook(p1, b.getFieldAt(4, 3));
+		 Bishop bi = new Bishop(p1, b.getFieldAt("d5"));
+		p1.addFigureInPlay(bi);
 
 		System.out.println(p1.getFiguresInPlay().get(0).getField()
 				.getPosition());
@@ -19,6 +20,7 @@ public class Program {
 			System.out.print(f.getPosition() + ", ");
 		System.out.println();
 		b.print();
+
 	}
 
 }

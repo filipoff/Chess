@@ -32,7 +32,8 @@ public class Rook extends Figure {
 			Field possibleField = getField().getBoard().getFieldAt(i,
 					currentPositionColumn);
 
-			possibleFieldsToMove.add(possibleField);
+			if (possibleField != null)
+				possibleFieldsToMove.add(possibleField);
 		}
 
 		for (int i = 0; i < Constants.BOARD_WIDTH; i++) {
@@ -44,9 +45,10 @@ public class Rook extends Figure {
 			Field possibleField = getField().getBoard().getFieldAt(
 					currentPositionRow, i);
 
-			possibleFieldsToMove.add(possibleField);
+			if (possibleField != null)
+				possibleFieldsToMove.add(possibleField);
 		}
-		
+
 		return possibleFieldsToMove;
 	}
 }

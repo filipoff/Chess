@@ -6,7 +6,7 @@ public class Board {
 
 	public Board() {
 
-		Constants.Color c = Constants.Color.WHITE;
+		Constants.Color c = Constants.Color.BLACK;
 
 		board = new Field[Constants.BOARD_LENGTH][Constants.BOARD_WIDTH];
 
@@ -53,6 +53,7 @@ public class Board {
 				|| column >= Constants.BOARD_WIDTH)
 			// TODO:
 			// null or exception ??
+
 			return null;
 
 		return board[row][column];

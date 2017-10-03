@@ -31,16 +31,12 @@ public class King extends Figure {
 				if (i == 0 && j == 0)
 					continue;
 
-				try {
-					Field possibleField = getField().getBoard().getFieldAt(
-							currentPositionRow + i, currentPositionColumn + j);
+				Field possibleField = getField().getBoard().getFieldAt(
+						currentPositionRow + i, currentPositionColumn + j);
 
-					if (possibleField != null)
-						possibleFieldsToMove.add(possibleField);
+				if (possibleField != null)
+					possibleFieldsToMove.add(possibleField);
 
-				} catch (IllegalArgumentException e) {
-					System.out.println("Exception caught in King");
-				}
 			}
 		}
 		return possibleFieldsToMove;
