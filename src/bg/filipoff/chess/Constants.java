@@ -9,13 +9,16 @@ public class Constants {
 
 	public static int BOARD_WIDTH = 8;
 
+	// TODO: check if "extends" or "super" must be used
 	@SuppressWarnings("serial")
-	public static Map<Figure, String> FigureStringRepresentation = new HashMap<Figure, String>() {
+	public static Map<Class<? extends Figure>, String> FigureStringRepresentation = new HashMap<Class<? extends Figure>, String>() {
 		{
-			put(new King(null, null), "K");
-			put(new Rook(null, null), "R");
-			put(new Bishop(null, null), "B");
-		};
+			put(King.class, "K");
+			put(Rook.class, "R");
+			put(Bishop.class, "B");
+			put(Queen.class, "Q");
+		}
+
 	};
 
 	public enum Color {

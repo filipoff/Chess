@@ -11,8 +11,8 @@ public class King extends Figure {
 
 	@Override
 	public String toString() {
-		return super.getOwner().getColor()
-				+ Constants.FigureStringRepresentation.get(this);
+		return super.getOwner().getColor().shortString()
+				+ Constants.FigureStringRepresentation.get(King.class);
 	}
 
 	@Override
